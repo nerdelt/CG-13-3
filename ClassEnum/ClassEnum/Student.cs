@@ -98,7 +98,7 @@ namespace ClassEnum
                     break;
 
                 default:
-                    Console.WriteLine("We're sorry, but that name is not in the class list.");
+                    throw new Exception("\nWe're sorry, but that name is not in the class list.");
                     break;
 
             }

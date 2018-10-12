@@ -22,15 +22,24 @@ namespace ClassEnum
 
             //takes user input and creates string
             string nameEntered = Console.ReadLine();
-
+            Student.FirstName firstName;
             //parses users input to be used in case/switch
-            Student.FirstName firstName = (Student.FirstName)Enum.Parse(typeof(Student.FirstName), nameEntered);
+            try
+            {
+                firstName = (Student.FirstName)Enum.Parse(typeof(Student.FirstName), nameEntered);
+                Console.Write($"\nThe student's full name is: {nameEntered} ");
+                student.LastName(firstName);
+            }
+
+            catch (Exception ex)
+            {
+                Console.WriteLine("\nSorry this name is not in the class list.\n");
+                Console.WriteLine(ex.Message);
+            }
 
             //prints student's full name to console
-            Console.Write($"\nThe student's full name is: {nameEntered} ");
-
-            student.LastName(firstName);
-
+            //firstName = (Student.FirstName)Enum.Parse(typeof(Student.FirstName), nameEntered);
+            
             Console.ReadLine();
 
         }    
